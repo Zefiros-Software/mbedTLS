@@ -6,6 +6,10 @@ project "mbedTLS"
 
     zpm.export [[
         includedirs "include/"
+
+        defines {
+            "MBEDTLS_MD4_C"
+        }
     ]]
 
     files {
