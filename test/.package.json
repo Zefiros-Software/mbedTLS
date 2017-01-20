@@ -1,0 +1,9 @@
+{
+    "name": "Zefiros-Software/mbedtls-Dev",
+    "requires": [
+        {
+            "name": "Zefiros-Software/mbedTLS",
+            "version": "@head"
+        }
+    ]
+}

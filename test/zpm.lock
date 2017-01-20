@@ -1,0 +1,12 @@
+
+{
+    "dependencies": [ 
+    {
+        "hash": "1a6a15c795922f05bd2ea17addf27eddcd256a15",
+        "name": "Zefiros-Software/mbedTLS",
+        "tag": "master",
+        "type": "library",
+        "version": "@head"
+    }],
+    "name": "Zefiros-Software/mbedtls-Dev"
+}

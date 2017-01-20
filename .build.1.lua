@@ -16,4 +16,3 @@ project "mbedTLS"
 		"include/**.h",
 		"library/*.c"
 	}
-
