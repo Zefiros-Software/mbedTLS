@@ -7,4 +7,4 @@ premake5 gmake
 
 make 
 
-./bin/Test/mbedtls --help
+./bin/Test/mbedTLS --help
