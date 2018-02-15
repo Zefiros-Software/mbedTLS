@@ -1,0 +1,17 @@
+version: ">=2.3.2 || @head"
+export: |
+    project "mbedTLS"
+
+        kind "StaticLib"
+        language "C"
+
+        files {
+            "include/**.h",
+            "library/*.c"
+        }
+
+        zpm.export [[
+            includedirs "include/"
+
+            defines "MBEDTLS_MD4_C"
+        ]]

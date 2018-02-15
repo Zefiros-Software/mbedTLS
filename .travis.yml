@@ -1,24 +1,23 @@
 sudo: required
 language: generic
 matrix:
-    include:
-        # Use the built in venv for linux builds
-        - os: linux
-          dist: trusty          
-          env: VERSION=6
-        - os: linux
-          dist: trusty          
-          env: VERSION=5
-        # Use generic language for osx
-        - os: osx
-          osx_image: xcode8
-          language: generic
-
+  include:
+  - os: linux
+    dist: trusty
+    env: VERSION=6
+  - os: linux
+    dist: trusty
+    env: VERSION=7
+  - os: linux
+    dist: trusty
+    env: VERSION=5
+  - os: osx
+    osx_image: xcode8
+    language: generic
 install:
-    - bash script/install-unix.sh
-    - wget -O - https://raw.githubusercontent.com/Zefiros-Software/ZPM/master/script/install-zpm-travis.sh | bash
+- source /dev/stdin <<< "$(curl -s https://raw.githubusercontent.com/Zefiros-Software/ZPM/features/refactor/script/install-zpm.sh)"
 script:
-    - bash script/travis-build.sh
+- cd test && zpm run test-definition mbedTLS
 notifications:
-    slack:
-        secure: "J8S2WdWpg+uh+LYIfiY7LQ+vfhIKTNDnFz81zxZ0gfSzwmRvFJxxS7b6n3da6rRs8slvyXdSfaGoL38uESQEQmuTN1eONEXvoTGnIMUbVjZ8FehXUd0HsmAi+qQWqg4s0vmUHm+ZzhjI8Dt/Fdf/EcUkFDovrn4VPpgUC/8yzz85CUM/ONzrdrVxOuBlZdvDE9yYcQ9aZTwzJ9OkzNbHHYfsZnGQwRFSp2gbPA4gsHT7bx8JE19qatqVy4TAqlNNRtN3q8rRlLWbaupFO+JRWT3RV3NB9BFwjMB+9cWMBXH6Qu0hnJQGsP8p/gK4dkbOrTQMLLYNihcTXTyRxRBAxvtA9cwTR4+zBqIu+ERrJ/E0Hh0ZpClW+FvEtcTsZ14PV/zzsuvpyEfWwwMMUNR5uPDe29lKCyETE+rOY1crfrCCeXMHgwS0LsZbwCehzr+n8MMPmv8JZRmLUJ9eF0s8kPgSK+NrZv7vnSOF5/cDObJEuiGDAtVndcyMYAHkKbD84JVIn4ZfaB8BS7pRsl9F8MqRqL0CQC2Gpl+V+BGx/6u/ErvuM0OBTC/2nwtK4PdHxyXficgZWoJQLUSqiCaqPICVYDZK6U+/uVW9FxkHLpvsVZlxlbHjjcxoexOj5DOu6R9bmLFYANGfllnT2u0tRbq5C5eiehi2+W04hbLctLM="
+  slack:
+    secure: Jqs8Wtp+B9Od9joaDhzvVyB98nbkXVuxYX0OZAlj+0olJoZd+C39xhtWBCmsmkxHxLyResyL+yH2MguQV65HoALjtZSCSGSCsleWitvW7hQXaLO3cjKIJ5Nw5UNCyZLA0yDzlcxtCB5RXXR7GcsFwu2bvwxSOFfXwi+KsBLtsAzgoxdL7IX5iL4uTez7Fb3Pewnh2koZ7QVy54bALoboFOo1lFaq/ATsVt2sqZ9kbeCkbfza4sJoR25Bnn9oEMJVUVDz9QNrhbxnjLwVwo++dV3SG0qyjMgBx0MjpN3CHN0FCngSS5XDNAH1PtKRIlEZ8lTduYtnhzUQTwPA9gFutvOgJXy3t/LRgG//8VtcaDxSyzdHh8dZ15v/UQJgpLtCIYujsfjED48pxO0dQfEl1CLmeZOpN/iEjhpdMm6YrQsrFxNI5ioCUtFras1qNNwyVZbQCRYrRKQHJtHjQaes6+JSVAZIL2CHZTKYrqdHpJXAD0rIOem63mngi5SMFoN4vQAdV89uxJOx8Cy83NfGnAZDnVP00kD2wL7T3n1Vt5t/qye138ao6SxIL7p1ufFz5r2xmzR+ksCPma/LPUh+WHLtX25n5dGpjbXM0uaRiI6cnA9D/HDfkNuzioryHy1DZGKHF1V9cfNu7j1kPpUGiO08y9vTj8jYcQEPpOeOOVc=
