@@ -8,16 +8,17 @@ matrix:
   - os: linux
     dist: trusty
     env: VERSION=7
-  - os: linux
-    dist: trusty
-    env: VERSION=5
   - os: osx
-    osx_image: xcode8
+    osx_image: xcode9.2
     language: generic
+global:
+  env:
+  - PROJECT=mbedTLS
+  - PROJECT_TEMPLATE=default
 install:
-- source /dev/stdin <<< "$(curl -s https://raw.githubusercontent.com/Zefiros-Software/ZPM/features/refactor/script/install-zpm.sh)"
+- source /dev/stdin <<< "$(curl -s https://raw.githubusercontent.com/Zefiros-Software/ZPM/dev/script/install-zpm.sh)"
 script:
 - cd test && zpm run test-definition mbedTLS
 notifications:
   slack:
-    secure: Jqs8Wtp+B9Od9joaDhzvVyB98nbkXVuxYX0OZAlj+0olJoZd+C39xhtWBCmsmkxHxLyResyL+yH2MguQV65HoALjtZSCSGSCsleWitvW7hQXaLO3cjKIJ5Nw5UNCyZLA0yDzlcxtCB5RXXR7GcsFwu2bvwxSOFfXwi+KsBLtsAzgoxdL7IX5iL4uTez7Fb3Pewnh2koZ7QVy54bALoboFOo1lFaq/ATsVt2sqZ9kbeCkbfza4sJoR25Bnn9oEMJVUVDz9QNrhbxnjLwVwo++dV3SG0qyjMgBx0MjpN3CHN0FCngSS5XDNAH1PtKRIlEZ8lTduYtnhzUQTwPA9gFutvOgJXy3t/LRgG//8VtcaDxSyzdHh8dZ15v/UQJgpLtCIYujsfjED48pxO0dQfEl1CLmeZOpN/iEjhpdMm6YrQsrFxNI5ioCUtFras1qNNwyVZbQCRYrRKQHJtHjQaes6+JSVAZIL2CHZTKYrqdHpJXAD0rIOem63mngi5SMFoN4vQAdV89uxJOx8Cy83NfGnAZDnVP00kD2wL7T3n1Vt5t/qye138ao6SxIL7p1ufFz5r2xmzR+ksCPma/LPUh+WHLtX25n5dGpjbXM0uaRiI6cnA9D/HDfkNuzioryHy1DZGKHF1V9cfNu7j1kPpUGiO08y9vTj8jYcQEPpOeOOVc=
+    secure: OE6lcWoVCIfMBmiAvSVWBBeCVemueOIPi1ohwBpBlylu2525jSX0ciI6VMAmLzQ8Pi8NL2LTBZ8Z4qYZfjWyQ+oIRcNdIbUoesNcehcNqIukDnWT1pSSF0s+EDS8aTPw0BfeWcfl8RyBAW04iymRm0dJRgiWtWn3Fy2Y883/fANzTWaEoNE7K4ibIFLaKRdPFN/KmrC0W0jY0Dy4cy2q/j28nTKlT4q/NpEy/pxmqF4fmeOe94fPwvTSExJ5TEw1v0AFMJp4GvV+2tFonMU74Lvqrs9QhGMvGKboIM4ObUgKcg2rYwqI5kd61uhg4EBc+6GxpZVcKISy+Irb/cQR0YBE5jCGr9zZBFiuoDAU8CDYmNW40gFLf/QNKvUymu2dgE1hA61UN7enTTBnZTicD/GCdG+LYYja4q6SySzMKuPu40WE59qxSO3ZILfvG4wVTscs99ppn64uaqSX6dM5ri/GOSYAfvPoOjxLGEpIgB7WQRbANDAWRE6VF461Z0Zp8tEZoirx2dJxUapMVaRIWD27k4Ia+ksU75bro+kWUOETNoaCuArusPhNlEW4I148izALBvA9jBOubg9KMh/QM4LNCCPE0kQz6Anmc8sfXnJpuoNEkiVmuAOcvFfrDyzA3QFRTlJb6qP43nSd/0bB+391YpsnGRFFr3A5jOLZfkA=
